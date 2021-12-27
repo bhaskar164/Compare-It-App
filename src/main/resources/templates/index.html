@@ -1,34 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th=”http://www.thymeleaf.org”>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="webjars/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body>
+<body class="container">
 	<div>
 		<h1>Compare It Application!!</h1>
 	</div>
-
+	<p th:text="${startPointer}"></p>
 	<div>
-		<form action="/compare" method="post">
-			<table>
-				<thead>
-					<tr>
-						<th>File One</th>
-						<th>File Two</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><textarea style="resize:none;" rows="30" cols="50" name="fileOne"></textarea></td>
-						<td><textarea style="resize:none;" rows="30" cols="50" name="fileTwo"></textarea></td>
-					</tr>
-					<tr>
-						<td><input type="submit" value="Compare"  /> <input type="reset" value="Clear" /> </td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
+		<div class="results">
+			<div th:if= "${data1 != null}" >
+				<p  th: text="${data1}" ></p>
+			</div>
+			<!-- <div class="toCompare">
+				<p th: text="${duplicate}" ></p>
+			</div> -->
+		</div>
+		<form modelAttribute="data" action="/compare" method="post">
+			<div>
+				<div style="display: flex; justify-content: space-between;">
+					<div>Original Text</div>
+
+					<div>To compare with</div>
+				</div>
+				<div style="display: flex; justify-content: space-between;">
+					<div>
+						<textarea style="resize: none;" rows="20" cols="70" name="fileOne"
+							required></textarea>
+					</div>
+					<div>
+						<textarea style="resize: none;" rows="20" cols="70" name="fileTwo"
+							required></textarea>
+					</div>
+				</div>
+				<div style="display: flex; justify-content: center;">
+
+					<div>
+						<input class="btn btn-warning m-3" type="submit" value="Compare" />
+						<input class="btn btn-danger m-3" type="reset" value="Clear" />
+					</div>
+
+				</div>
+			</div>
+
 		</form>
 
 	</div>
