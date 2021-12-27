@@ -14,27 +14,28 @@
 	<div>
 		<div class="results">
 			<div th:if= "${data1 != null}" >
-				<p  th: text="${data1}" ></p>
+				<p  th:text="${data1}" ></p>
 			</div>
-			<!-- <div class="toCompare">
-				<p th: text="${duplicate}" ></p>
-			</div> -->
+			<div>
+				<p th:utext="${data2}" ></p>
+			</div> 
 		</div>
-		<form modelAttribute="data" action="/compare" method="post">
+		<form action="/compare" method="post" th:object="${data}">
 			<div>
 				<div style="display: flex; justify-content: space-between;">
 					<div>Original Text</div>
 
-					<div>To compare with</div>
+					<div>Duplicate</div>
+
 				</div>
 				<div style="display: flex; justify-content: space-between;">
 					<div>
-						<textarea style="resize: none;" rows="20" cols="70" name="fileOne"
-							required></textarea>
+						<textarea th:field="*{originalString}" name="originalString" style="resize: none;"
+							rows="20" cols="70" required></textarea>
 					</div>
 					<div>
-						<textarea style="resize: none;" rows="20" cols="70" name="fileTwo"
-							required></textarea>
+						<textarea th:field="*{duplicateString}" name="duplicateString" style="resize: none;"
+							rows="20" cols="70" required></textarea>
 					</div>
 				</div>
 				<div style="display: flex; justify-content: center;">
