@@ -2,41 +2,47 @@
 <html xmlns:th=”http://www.thymeleaf.org”>
 <head>
 <meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Insert title here</title>
+
 <link rel="stylesheet"
 	href="webjars/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body class="container">
-	<div>
-		<h1>Compare It Application!!</h1>
-	</div>
-	<p th:text="${startPointer}"></p>
-	<div>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+		<h1 class="text-light">Compare It</h1>
+	</nav>
+	<div class="container">
+		<!-- <p th:text="${startPointer}"></p> -->
 		<div class="results">
-			<div th:if= "${data1 != null}" >
-				<p  th:text="${data1}" ></p>
+			<div th:if="${data1 != null}">
+				<p th:utext="${data1}"></p>
 			</div>
 			<div>
-				<p th:utext="${data2}" ></p>
-			</div> 
+				<p th:utext="${data2}"></p>
+			</div>
 		</div>
-		<form action="/compare" method="post" th:object="${data}">
-			<div>
-				<div style="display: flex; justify-content: space-between;">
-					<div>Original Text</div>
+		<div class="bg-dark">
 
-					<div>Duplicate</div>
+			<form action="/compare" method="post" th:object="${data}">
+				<div>
+					<div class="text-light"
+						style="padding: 5px; display: flex; justify-content: space-evenly;">
+						<h4>TEXT 1</h4>
 
+
+						<h4>TEXT 2</h4>
+					</div>
 				</div>
-				<div style="display: flex; justify-content: space-between;">
-					<div>
-						<textarea th:field="*{originalString}" name="originalString" style="resize: none;"
-							rows="20" cols="70" required></textarea>
-					</div>
-					<div>
-						<textarea th:field="*{duplicateString}" name="duplicateString" style="resize: none;"
-							rows="20" cols="70" required></textarea>
-					</div>
+				<div
+					style="padding: 5px; display: flex; justify-content: space-between;">
+					<textarea th:field="*{originalString}" name="originalString"
+						style="resize: none;" rows="20" cols="70" required></textarea>
+
+					<textarea th:field="*{duplicateString}" name="duplicateString"
+						style="resize: none;" rows="20" cols="70" required></textarea>
+
 				</div>
 				<div style="display: flex; justify-content: center;">
 
@@ -46,13 +52,12 @@
 					</div>
 
 				</div>
-			</div>
+				
+				</form>
+		</div>
 
-		</form>
+		
 
 	</div>
-
-
-
 </body>
 </html>
