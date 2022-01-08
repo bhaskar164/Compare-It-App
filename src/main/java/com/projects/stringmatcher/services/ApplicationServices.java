@@ -11,8 +11,6 @@ public class ApplicationServices {
 		ArrayList<Integer> unmatchedIndeces = null;
 		if (original != null && toCompare != null) {
 			unmatchedIndeces = new ArrayList<>();
-//			int st=0;
-//			int end=0;
 			for (int i = 0, j = 0; i < original.length() && j < toCompare.length(); i++, j++) {
 				if (original.charAt(i) != toCompare.charAt(j)) {
 					unmatchedIndeces.add(j);
@@ -29,7 +27,7 @@ public class ApplicationServices {
 		String resultString = "";
 		for (int i = 0; i < toCompare.length(); i++) {
 			if (unmatchedIndeces.contains(i)) {
-				resultString += "<span style=\"background-color:yellow;\">";
+				resultString += "<span style=\"background-color:#ff001d;\">";
 				resultString += toCompare.charAt(i) + "</span>";
 			} else {
 				resultString += toCompare.charAt(i);

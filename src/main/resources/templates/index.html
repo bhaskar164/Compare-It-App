@@ -4,7 +4,7 @@
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Insert title here</title>
+<title>Compare It</title>
 
 <link rel="stylesheet"
 	href="webjars/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -15,15 +15,15 @@
 	</nav>
 	<div class="container">
 		<!-- <p th:text="${startPointer}"></p> -->
-		<div class="results">
-			<div th:if="${data1 != null}">
+		<div th:if="${data1 != null}" style="padding: 5px;"class="row mt-2 mb-2 text-light bg-dark">
+			<div th:if="${data1 != null}" class="col-sm">
 				<p th:utext="${data1}"></p>
 			</div>
-			<div>
+			<div class="col-sm">
 				<p th:utext="${data2}"></p>
 			</div>
 		</div>
-		<div class="bg-dark">
+		<div class="bg-dark mt-2">
 
 			<form action="/compare" method="post" th:object="${data}">
 				<div>
