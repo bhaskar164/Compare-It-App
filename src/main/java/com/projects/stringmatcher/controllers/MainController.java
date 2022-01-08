@@ -25,10 +25,6 @@ public class MainController {
 		return "index";
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/error")
-	public String homePage() {
-		return "errorPage";
-	}
 
 	@PostMapping(value = "/compare")
 	public String compareData(Model model,@ModelAttribute("data") InputData inputData) {
