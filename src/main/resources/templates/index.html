@@ -14,13 +14,12 @@
 		<h1 class="text-light">Compare It</h1>
 	</nav>
 	<div class="container">
-		<!-- <p th:text="${startPointer}"></p> -->
 		<div th:if="${data1 != null}" style="padding: 5px;"class="row mt-2 mb-2 text-light bg-dark">
 			<div th:if="${data1 != null}" class="col-sm">
-				<p th:utext="${data1}"></p>
+				<pre class="text-light" th:utext="${data1}"></pre>
 			</div>
 			<div class="col-sm">
-				<p th:utext="${data2}"></p>
+				<pre class="text-light" th:utext="${data2}"></pre>
 			</div>
 		</div>
 		<div class="bg-dark mt-2">
@@ -47,7 +46,7 @@
 				<div style="display: flex; justify-content: center;">
 
 					<div>
-						<input class="btn btn-warning m-3" type="submit" value="Compare" />
+						<input class="btn btn-warning m-3" type="submit" value="Compare"/>
 						<input class="btn btn-danger m-3" type="reset" value="Clear" />
 					</div>
 

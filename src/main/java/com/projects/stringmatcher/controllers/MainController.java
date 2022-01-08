@@ -30,10 +30,9 @@ public class MainController {
 	public String compareData(Model model,@ModelAttribute("data") InputData inputData) {
 		String data1 = inputData.getOriginalString();
 		String data2 = inputData.getDuplicateString();
-		System.out.println(data1);
-		System.out.println(data2);
+		data1 = businessLogic.updateStringsForHtmlTags(data1);
+		data2 = businessLogic.updateStringsForHtmlTags(data2);
 		String resultString= businessLogic.compareStrings(data1, data2);
-//		model.addAttribute("startPointer", p1);
 		model.addAttribute("data1", data1);
 		model.addAttribute("data2", resultString);
 		return "index";
