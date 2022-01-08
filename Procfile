@@ -1,1 +1,1 @@
-web: java -jar target/Compareitapp-0.0.1-SNAPSHOT.jar -Dserver.port=$PORT
+web: java -jar -Dserver.port=$PORT target/Compareitapp-0.0.1-SNAPSHOT.jar
